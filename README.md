@@ -1,5 +1,3 @@
 # chess_mk4
 
-# Phisical Chess board:
-1. snap pieces
-2. reinvestigate hex chess problems 
+Mark 3 focused on hardware limitations, project had to run on Atmega-8 processor. This version aims to do the opposite, this time we're using all 32 GB of RAM, all 16 cores of AMD Ryzen9 and RTX 4080. The goal is to make my pc scream while calculating chess... 
