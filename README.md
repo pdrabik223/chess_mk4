@@ -1,6 +1,6 @@
 # chess_mk4
 
-Mark 3 focused on hardware limitations, project had to run on Atmega-8 processor. This version aims to do the opposite, this time we're using all 32 GB of RAM, all 16 cores of AMD Ryzen9 and RTX 4080. The goal is to make my pc scream while calculating chess... 
+Mark 3 focused on hardware limitations, project had to run on ATmega328P MCU processor. This version aims to do the opposite, this time we're using all 32 GB of RAM, all 16 cores of AMD Ryzen9 and RTX 4080. The goal is to make my pc scream while calculating chess... 
 
 # USefull links
 [cuda tutorial](https://docs.nvidia.com/cuda/cuda-c-programming-guide/)
@@ -15,19 +15,35 @@ llvm comes with visual studio... just remember to add it to the path.
 
 ## Compile instructions
 
+NOTE make sure to use x64 host, this is forced on su by cuda libraries 
+
 To compile program: 
+
 ```shell
-nvcc .\helloworld.cu -o demo.exe
+nvcc .\main.cu -o chess_mk4.exe
 ```  
 
 or compile using cmake:
 
 Run cmake
 ```shell
-cmake -G "Visual Studio 17 2022" -A x64 -S ./ -B "build64"
+cmake .
 ```
+
 and build
 
 ```shell
-cmake --build build64 --config Release
+cmake --build .
+```
+
+If you encounter 'cudafe++' issues there might be host version mismatch between cuda and msvc, than force cmake to use x64 architecture:  
+  
+```shell
+cmake -G "Visual Studio 17 2022" -A x64 -S ./ -B "build64"
+```
+
+or 
+
+```shell
+cmake --build build64
 ```
